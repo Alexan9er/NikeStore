@@ -1,0 +1,70 @@
+.card {
+  min-width: 22vw;
+  position: relative;
+  display: inline-block;
+  margin: 0 7vw;
+}
+
+.card:first-child {
+  margin: 0 7vw 0 2vw;
+}
+.card:last-child {
+  margin: 0 2vw 0 7vw;
+}
+
+.cart__img {
+  max-width: 100%;
+  height: 55vh;
+  transform: rotate(-20deg);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.card:hover .cart__img {
+  transform: scale(1.1);
+}
+
+.cart__text {
+  position: relative;
+  margin: 0 3px 20px 0px;
+  z-index: 10;
+}
+
+.card__tag {
+  position: absolute;
+  left: 0px;
+  top: 30px;
+  color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  font-size: 1vw;
+}
+
+.cart__model {
+  font-size: 1vw;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.04em;
+}
+
+.card__title {
+  margin: 1vh 0 3vh;
+  line-height: 1;
+  color: #000;
+  font-size: 1.5vw;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.price-and-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart__price {
+  font-size: 1.5vw;
+  font-weight: 400;
+  z-index: 10;
+  color: #868686;
+  letter-spacing: -0.03em;
+}
