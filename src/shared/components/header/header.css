@@ -1,0 +1,27 @@
+.header {
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  padding: 0vh 2vw;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.header-logo {
+  font-size: 1.8vw;
+  font-weight: 600;
+}
+
+.header-logo a {
+  color: #000;
+  text-decoration: none;
+}
+
+.header-cart {
+  font-size: 1vw;
+  font-weight: 600;
+  color: #000;
+  text-transform: uppercase;
+  cursor: pointer;
+}
