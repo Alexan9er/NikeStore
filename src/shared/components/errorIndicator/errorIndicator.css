@@ -1,9 +1,12 @@
+.error-indicator {
+  margin: 5vh 2vw;
+}
 .boom {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 1.2vw;
+  font-weight: 600;
   margin-right: 10px;
   display: block;
-  color: #ec1443de;
+  color: #313131de;
 }
 
 .error-indicator-text {

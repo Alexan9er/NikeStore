@@ -1,6 +1,6 @@
 import React from 'react';
-import ShoesList from '../components/shoesList';
+import ShoesListContainer from '../containers/shoesListContainer';
 
-const HomePage = () => <ShoesList />;
+const HomePage = () => <ShoesListContainer />;
 
 export default HomePage;

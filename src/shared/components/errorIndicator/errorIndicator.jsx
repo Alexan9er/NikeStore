@@ -4,7 +4,7 @@ import './errorIndicator.css';
 
 const ErrorIndicator = () => (
   <div className="error-indicator">
-    <span className="boom">BOOM!</span>
+    <span className="boom">SORRY!</span>
     <span className="error-indicator-text">
       something has gone terribly wrong{' '}
     </span>

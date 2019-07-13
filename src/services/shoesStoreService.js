@@ -42,6 +42,7 @@ export default class ShoesStoreService {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(this.data);
+        // reject(new Error('Something had bad'));
       }, 700);
     });
   }
