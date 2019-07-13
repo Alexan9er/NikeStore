@@ -3,4 +3,8 @@ const shoesLoaded = newShoes => ({
   payload: newShoes,
 });
 
-export { shoesLoaded };
+const shoesRequested = () => ({
+  type: 'SHOES_REQUESTED',
+});
+
+export { shoesLoaded, shoesRequested };
