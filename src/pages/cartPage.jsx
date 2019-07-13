@@ -1,5 +1,6 @@
 import React from 'react';
+import ShoppingCartTable from '../components/shoppingCartTable';
 
-const CartPage = () => <div>Cart page</div>;
+const CartPage = () => <ShoppingCartTable />;
 
 export default CartPage;

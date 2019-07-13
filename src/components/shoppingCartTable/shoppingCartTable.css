@@ -1,0 +1,67 @@
+.shopping-cart-table {
+  margin: 0 2vw;
+  overflow-y: auto;
+  max-height: 75vh;
+}
+
+.shopping-cart-table::-webkit-scrollbar {
+  width: 0.2vw;
+}
+.shopping-cart-table::-webkit-scrollbar-track {
+  background-color: rgb(221, 221, 221);
+}
+.shopping-cart-table::-webkit-scrollbar-thumb {
+  background-color: rgb(49, 49, 49);
+}
+
+.shopping-cart-title {
+  font-size: 1.3vw;
+  font-weight: 600;
+  color: #808080;
+  margin-bottom: 4vh;
+}
+
+.shopping-cart-table table {
+  width: 100%;
+  font-size: 1.2vw;
+  border-bottom: 0.2vh solid #ddd;
+}
+
+.shopping-cart-table th {
+  font-size: 1vw;
+  font-weight: 400;
+  color: rgb(122, 122, 122);
+}
+.shopping-cart-table tr {
+  text-align: center;
+}
+
+.cart-table__title {
+  font-weight: 600;
+}
+
+.cart-table__img {
+  width: 8vw;
+}
+
+.cart-table__price {
+  font-weight: 600;
+}
+
+.table-btn {
+  padding: 0.5vw 1vw;
+  margin: 0 10px;
+  border: none;
+}
+
+.total {
+  width: fit-content;
+  font-size: 1.5vw;
+  margin-left: auto;
+  margin-right: 2vw;
+  margin-top: 3vh;
+}
+
+.total span {
+  font-weight: 600;
+}
