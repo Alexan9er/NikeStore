@@ -17,6 +17,16 @@ export const shoeAddedToCart = shoeId => ({
   payload: shoeId,
 });
 
+export const shoeRemoveFromCart = shoeId => ({
+  type: 'SHOE_REMOVE_FROM_CART',
+  payload: shoeId,
+});
+
+export const allShoesRemoveFromCart = shoeId => ({
+  type: 'ALL_SHOES_REMOVE_FROM_CART',
+  payload: shoeId,
+});
+
 const fetchShoes = (shoesService, dispatch) => () => {
   dispatch(shoesRequested());
   shoesService

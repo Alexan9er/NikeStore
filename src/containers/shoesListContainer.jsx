@@ -53,7 +53,7 @@ class ShoesListContainer extends Component {
     return <ShoesList shoes={shoes} onAddedToCart={onAddedToCart} />;
   }
 }
-const mapStateToProps = ({ shoes, error, isLoading }) => ({
+const mapStateToProps = ({ shoesList: { shoes, error, isLoading } }) => ({
   shoes,
   isLoading,
   error,
