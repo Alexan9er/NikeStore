@@ -1,8 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './shoppingCartTable.css';
 
-const ShoppingCartTable = () => (
+const ShoppingCartTable = ({
+  items,
+  total,
+  onIncrease,
+  onDecrease,
+  onDelete,
+}) => (
   <React.Fragment>
     <div className="shopping-cart-table">
       <h3 className="shopping-cart-title">Your orders</h3>
@@ -19,121 +26,77 @@ const ShoppingCartTable = () => (
         </thead>
 
         <tbody className="cart-table-body">
-          <tr>
-            <td>1</td>
-            <td className="cart-table__title">Nike Air VaporMax</td>
-            <td>
-              <img
-                className="cart-table__img"
-                src="https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/wxe4gb7zjiey9eejirq0/air-vapormax-flyknit-3-mens-shoe-JsWsB7.jpg"
-                alt="Nike"
-              />
-            </td>
+          {items.map((item, idx) => {
+            const { id, title, img, price, count } = item;
 
-            <td>
-              <button type="submit" className="table-btn btn">
-                +
-              </button>
-              <span>2</span>
-              <button type="submit" className="table-btn btn">
-                -
-              </button>
-            </td>
-            <td className="cart-table__price">$398</td>
-            <td>
-              <button type="submit" className="table-btn btn">
-                del
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td className="cart-table__title">Nike Air VaporMax</td>
-            <td>
-              <img
-                className="cart-table__img"
-                src="https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/wxe4gb7zjiey9eejirq0/air-vapormax-flyknit-3-mens-shoe-JsWsB7.jpg"
-                alt="Nike"
-              />
-            </td>
+            return (
+              <tr key={id}>
+                <td>{idx}</td>
+                <td className="cart-table__title">{title}</td>
+                <td>
+                  <img className="cart-table__img" src={img} alt={title} />
+                </td>
 
-            <td>
-              <button type="submit" className="table-btn btn">
-                +
-              </button>
-              <span>2</span>
-              <button type="submit" className="table-btn btn">
-                -
-              </button>
-            </td>
-            <td className="cart-table__price">$398</td>
-            <td>
-              <button type="submit" className="table-btn btn">
-                del
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td className="cart-table__title">Nike Air VaporMax</td>
-            <td>
-              <img
-                className="cart-table__img"
-                src="https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/wxe4gb7zjiey9eejirq0/air-vapormax-flyknit-3-mens-shoe-JsWsB7.jpg"
-                alt="Nike"
-              />
-            </td>
-
-            <td>
-              <button type="submit" className="table-btn btn">
-                +
-              </button>
-              <span>2</span>
-              <button type="submit" className="table-btn btn">
-                -
-              </button>
-            </td>
-            <td className="cart-table__price">$398</td>
-            <td>
-              <button type="submit" className="table-btn btn">
-                del
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td className="cart-table__title">Nike Air VaporMax</td>
-            <td>
-              <img
-                className="cart-table__img"
-                src="https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/wxe4gb7zjiey9eejirq0/air-vapormax-flyknit-3-mens-shoe-JsWsB7.jpg"
-                alt="Nike"
-              />
-            </td>
-
-            <td>
-              <button type="submit" className="table-btn btn">
-                +
-              </button>
-              <span>2</span>
-              <button type="submit" className="table-btn btn">
-                -
-              </button>
-            </td>
-            <td className="cart-table__price">$398</td>
-            <td>
-              <button type="submit" className="table-btn btn">
-                del
-              </button>
-            </td>
-          </tr>
+                <td>
+                  <button
+                    type="submit"
+                    className="table-btn btn"
+                    onClick={() => onIncrease(id)}
+                  >
+                    +
+                  </button>
+                  <span>{count}</span>
+                  <button
+                    type="submit"
+                    className="table-btn btn"
+                    onClick={() => onDecrease(id)}
+                  >
+                    -
+                  </button>
+                </td>
+                <td className="cart-table__price">{price}</td>
+                <td>
+                  <button
+                    type="submit"
+                    className="table-btn btn trash-btn"
+                    onClick={() => onDelete(id)}
+                  >
+                    <img
+                      src="https://image.flaticon.com/icons/png/512/61/61848.png"
+                      alt="trash"
+                    />
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
     <div className="total">
-      Total: <span>$398</span>
+      Total: <span>${total}</span>
     </div>
   </React.Fragment>
 );
 
-export default ShoppingCartTable;
+const mapStateToProps = ({ cartItems, cartTotal }) => ({
+  items: cartItems,
+  total: cartTotal,
+});
+
+const mapDispatchToProps = () => ({
+  onIncrease: (id) => {
+    console.log(`Increase ${id}`);
+  },
+  onDecrease: (id) => {
+    console.log(`Decrease ${id}`);
+  },
+  onDelete: (id) => {
+    console.log(`Delete ${id}`);
+  },
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ShoppingCartTable);

@@ -10,7 +10,7 @@ import { WithShoesService } from '../helpers/hocHelpers';
 import Spinner from '../shared/components/spinner';
 import ErrorIndicator from '../shared/components/errorIndicator';
 
-import { fetchShoes } from '../actions';
+import { fetchShoes, shoeAddedToCart } from '../actions';
 import ShoesList from '../components/shoesList';
 
 require('jquery-mousewheel');
@@ -40,7 +40,7 @@ class ShoesListContainer extends Component {
   };
 
   render() {
-    const { shoes, isLoading, error } = this.props;
+    const { shoes, isLoading, error, onAddedToCart } = this.props;
 
     if (isLoading) {
       return <Spinner />;
@@ -50,7 +50,7 @@ class ShoesListContainer extends Component {
       return <ErrorIndicator />;
     }
 
-    return <ShoesList shoes={shoes} />;
+    return <ShoesList shoes={shoes} onAddedToCart={onAddedToCart} />;
   }
 }
 const mapStateToProps = ({ shoes, error, isLoading }) => ({
@@ -61,6 +61,7 @@ const mapStateToProps = ({ shoes, error, isLoading }) => ({
 
 const mapDispatchToProps = (dispatch, { shoesService }) => ({
   fetchShoes: fetchShoes(shoesService, dispatch),
+  onAddedToCart: id => dispatch(shoeAddedToCart(id)),
 });
 
 export default WithShoesService()(

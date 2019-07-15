@@ -2,7 +2,7 @@ import React from 'react';
 
 import './shoesListItem.css';
 
-const ShoesListItem = ({ shoe }) => {
+const ShoesListItem = ({ shoe, onAddedToCart }) => {
   const { img, title, model, price, tag } = shoe;
 
   return (
@@ -14,7 +14,7 @@ const ShoesListItem = ({ shoe }) => {
         <h2 className="card__title">{title}</h2>
         <div className="price-and-btn">
           <span className="cart__price">${price}</span>
-          <button type="submit" className="btn">
+          <button type="submit" className="btn" onClick={onAddedToCart}>
             Add to cart
           </button>
         </div>

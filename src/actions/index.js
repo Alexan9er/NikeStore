@@ -12,6 +12,11 @@ const shoesError = error => ({
   payload: error,
 });
 
+export const shoeAddedToCart = shoeId => ({
+  type: 'SHOE_ADDED_TO_CART',
+  payload: shoeId,
+});
+
 const fetchShoes = (shoesService, dispatch) => () => {
   dispatch(shoesRequested());
   shoesService

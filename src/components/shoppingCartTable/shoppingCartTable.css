@@ -54,6 +54,22 @@
   border: none;
 }
 
+.trash-btn {
+  background: none;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.trash-btn:hover {
+  background: none;
+  opacity: 1;
+}
+
+.trash-btn img {
+  width: 21px;
+  height: auto;
+}
+
 .total {
   width: fit-content;
   font-size: 1.5vw;
